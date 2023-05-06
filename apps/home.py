@@ -35,7 +35,7 @@ def app():
     
     df1 = pd.read_csv('data.csv')
     option = ["Highest to Lowest", "Lowest to Highest"]
-    year = list(df['year'].unique())
+    year = list(df1['year'].unique())
     op = st.selectbox('Select Option :', option)
     op1 = st.multiselect('Select Year :', year)
     dfr= df1[df1['year'].isin(op1)]
