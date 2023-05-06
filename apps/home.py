@@ -32,9 +32,21 @@ def app():
 
     """
     )
+    
+    df1 = pd.read_csv('data.csv')
+    option = ["Highest to Lowest", "Lowest to Highest"]
+    year = list(df['year'].unique())
+    op = st.selectbox('Select Option :', option)
+    op1 = st.multiselect('Select Year :', year)
+    dfr= df1[df1['year'].isin(op1)]
+    fig1 = px.bar(dfr, x='country', y='happiness_score', labels={'country':'Country','happiness_score':'Happiness Score'})
+    if op == "Lowest to Highest":
+        fig1.update_layout(barmode='stack', xaxis={'categoryorder': 'total ascending'})
+    else:
+        fig1.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
+    st.plotly_chart(fig1,use_container_width=True)
 
     df = pd.read_csv('data.csv')
-
     region_list = list(df['region'].unique())
     regions = st.multiselect('Select Region :', region_list)
     dfr= df[df['region'].isin(regions)]
@@ -51,19 +63,9 @@ def app():
     fig = go.Figure()
     for country, df in dfs.items():
         fig = fig.add_trace(go.Scatter(x=df["year"], y=df["happiness_score"], name=country))
-
-    df1 = pd.read_csv('data.csv')
-    option = ["Highest to Lowest", "Lowest to Highest"]
-    year = list(df['year'].unique())
-    op = st.selectbox('Select Option :', option)
-    op1 = st.multiselect('Select Year :', year)
-    dfr= df1[df1['year'].isin(op1)]
-    fig1 = px.bar(dfr, x='country', y='happiness_score', labels={'country':'Country','happiness_score':'Happiness Score'})
-    if op == "Lowest to Highest":
-        fig1.update_layout(barmode='stack', xaxis={'categoryorder': 'total ascending'})
-    else:
-        fig1.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
-    
-    st.plotly_chart(fig1,use_container_width=True)
     st.plotly_chart(fig,use_container_width=True)
+        
+        
+        
+
 
