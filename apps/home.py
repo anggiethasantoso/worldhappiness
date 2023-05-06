@@ -52,10 +52,7 @@ def app():
     for country, df in dfs.items():
         fig = fig.add_trace(go.Scatter(x=df["year"], y=df["happiness_score"], name=country))
 
-    st.plotly_chart(fig,use_container_width=True)
-
     df1 = pd.read_csv('data.csv')
-
     option = ["Highest to Lowest", "Lowest to Highest"]
     year = list(df['year'].unique())
     op = st.selectbox('Select Option :', option)
@@ -66,5 +63,7 @@ def app():
         fig1.update_layout(barmode='stack', xaxis={'categoryorder': 'total ascending'})
     else:
         fig1.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
-    st.plotly_chart(fig1,use_container_width=True)
+    
+     st.plotly_chart(fig1,use_container_width=True)
+    st.plotly_chart(fig2,use_container_width=True)
 
