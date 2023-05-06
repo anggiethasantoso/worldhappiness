@@ -7,9 +7,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 from streamlit_option_menu import option_menu
 from apps import home, heatmap, upload 
-import scipy.stats as stats
-
-import streamlit as st
 
 
 st.set_page_config(page_title="World Happiness", layout="wide", page_icon="🏠",initial_sidebar_state="expanded")
