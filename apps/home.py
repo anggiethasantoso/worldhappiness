@@ -12,7 +12,7 @@ from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 def app():
     
     st.title("World Happiness Index")
-    st.image("/home/em/Documents/Anggietha/Datsci/Datsci/image.png", use_column_width='always')
+    st.image("image.png", use_column_width='always')
 
     st.write(
         """
