@@ -13,7 +13,7 @@ def app():
     from urllib.request import urlopen
     st.title("Country World Happiness by Year")    
 
-    with open('/home/em/Documents/Anggietha/Datsci/Datsci/countries.geojson') as response:
+    with open('countries.geojson') as response:
         ccaa = json.load(response)
 
     fig = px.choropleth_mapbox(
