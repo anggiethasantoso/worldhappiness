@@ -65,5 +65,5 @@ def app():
         fig1.update_layout(barmode='stack', xaxis={'categoryorder': 'total descending'})
     
     st.plotly_chart(fig1,use_container_width=True)
-    st.plotly_chart(fig2,use_container_width=True)
+    st.plotly_chart(fig,use_container_width=True)
 
